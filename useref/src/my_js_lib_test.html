@@ -4,12 +4,21 @@
 <head>
 <meta charset=utf-8 />
 
-<!-- build:js scripts/combined.js -->
-<!-- You can put comments in here too -->
-<script src="my_js_lib.js"></script>
-<script src="my_js_lib2.js"></script>
-<script src="lib3/my_lib3.js"></script>
-<!-- endbuild -->
+	<link href="vendor/vendor.css" rel="stylesheet">
+	
+    <!-- build:css asset/combined.css -->
+    <link href="asset/css/a.css" rel="stylesheet">
+    <link href="asset/css/b.css" rel="stylesheet">
+    <!-- endbuild -->	
+	
+	<!-- build:js asset/combined.js -->
+	<!-- You can put comments in here too -->
+	<script src="lib3/my_lib3.js"></script>
+	<script src="my_js_lib.js"></script>
+	<script src="my_js_lib2.js"></script>
+	<!-- endbuild -->
+
+	<script src="vendor/vendor.js"></script>
 
 <title>test useref</title>
 </head>
@@ -23,6 +32,9 @@
 	
 	<br />
 	<label id="lab4">test useref</label>
+	
+	<br/>
+	<a href="https://www.npmjs.com/package/gulp-useref" target="_blank"> gulp useref</a> 
 
 	<br />
 	<br />

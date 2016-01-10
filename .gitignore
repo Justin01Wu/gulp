@@ -1,2 +1,7 @@
 node_modules
 dist
+.metadata
+RemoteSystemsTempFiles
+.settings
+.classpath
+.project

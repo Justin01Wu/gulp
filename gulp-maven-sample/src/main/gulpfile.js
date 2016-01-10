@@ -13,7 +13,10 @@ var gulpif = require('gulp-if');
 var minifyCss = require('gulp-minify-css');
 var replace = require('gulp-regex-replace');
 
-var version="1235";
+var dateFormat = require('dateformat');
+var now = new Date(); 
+var version = dateFormat(now, "yyyymmdd'T'hhmmss");
+
 
 gulp.task('clean', function(){
 	  return gulp.src(['dist/*'], {read:false})

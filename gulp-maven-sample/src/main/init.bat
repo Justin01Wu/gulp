@@ -24,5 +24,7 @@ call npm install gulp-minify-css --save-dev
 
 call npm install gulp-regex-replace --save-dev
 
+call npm install dateformat --save-dev
+
 
 

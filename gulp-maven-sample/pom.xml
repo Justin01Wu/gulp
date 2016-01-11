@@ -123,11 +123,13 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
-					<warSourceExcludes>
-						/index.html,
-						/asset/**/*.*
-					</warSourceExcludes>
-
+					
+					<warSourceIncludes>/WEB-INF/**/*.*</warSourceIncludes>
+					<!-- all UI code will come from dist folder, so we don't need copy except java class -->	
+					
+					<webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+					<!-- because we use warSourceIncludes, so we have explicitly define web.xml file  -->
+					
 				</configuration>
 			</plugin>
 

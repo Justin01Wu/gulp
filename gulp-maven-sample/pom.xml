@@ -8,12 +8,21 @@
 	<name>gulp-maven-sample Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>compile</scope>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>gulp-maven-sample</finalName>
@@ -93,7 +102,7 @@
 				<executions>			
 					<execution>
 						<id>copy-dist</id>
-						<phase>package</phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -107,7 +116,20 @@
 						</configuration>
 					</execution>					
 				</executions>
-			</plugin>		
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warSourceExcludes>
+						/index.html,
+						/asset/**/*.*
+					</warSourceExcludes>
+
+				</configuration>
+			</plugin>
 
 		</plugins>
 	</build>

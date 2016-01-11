@@ -101,8 +101,7 @@
 							<outputDirectory>${project.build.directory}/${project.artifactId}/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/src/main/dist</directory>							
-									<filtering>true</filtering>
+									<directory>${basedir}/src/main/dist</directory>									
 								</resource>
 							</resources>
 						</configuration>

@@ -10,89 +10,42 @@
     <link href="asset/css/a.css" rel="stylesheet">
     <link href="asset/css/b.css" rel="stylesheet">
     <!-- endbuild -->	
-	
-	<!-- build:js asset/js/combined.js -->
-	<!-- You can put comments in here too -->
-	<script src="asset/js/lib3/my_lib3.js"></script>
-	<script src="asset/js/my_js_lib.js"></script>
-	<script src="asset/js/my_js_lib2.js"></script>
-	<!-- endbuild -->
+    
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+        <!-- load angular via CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>     
 
 	<script src="vendor/vendor.js"></script>
+	
+	<!-- build:js asset/combined/combined.js -->
+	<!-- You can put comments in here too -->
+	<script src="asset/js/lib3/my_lib3.js"></script>
+	<script src="asset/pages/about/aboutApp.js"></script>
+	<script src="asset/pages/home/homeApp.js"></script>
+	<script src="asset/js/myApp.js"></script>	
+	<!-- endbuild -->
+
+	
+	
 
 <title>test useref</title>
 </head>
 
-<body>
-	<h1>test useref</h1>
+<body ng-app="myApp">
 
-	<button onclick="testLib1()">test lib 1 </button>
-	<button onclick="testLib2()">test lib 2 </button>
-	<button onclick="testLib3()">test lib 3 </button>
-	
-	<h1>This is a web build testing</h1>
-	
-	<h2>The build process will figure out</h2> 
-	<ul>
-		<li> how to leverage browser cache to speed up </li>
-		<li> how to prevent stale browser cache</li>
-		<li> how to concat files to speed up</li>		
-		<li> integrate with maven, generate war file </li>
-	</ul>
-	
-	<br/>
-	
-				
-	<span class="spinBgIcon"></span>
-
-	
-	<br />
-	<label id="lab4">test useref</label>
-	
-	<br/>
-	<a href="https://www.npmjs.com/package/gulp-useref" target="_blank"> gulp useref</a> 
-
-	<br />
-	<br />
-	
-<script>
-	
-	
-	function testLib1(){
-		myPlugin.public_function1();
-		myPlugin.public_function2();
-	}
-	
-	function testLib2(){
-		//use my lib
-		var setting = {msg :"message from outside"}; 
-		var myObj = new Justin_JS_LIB34.Person(setting);
-		myObj.sayMsg1();
-		myObj.sayMsg2();
+    <div id="main">
+    
+        <a href = "#/">home</a> | 
+        <a href = "#/about">about</a> 
 		
-		Justin_JS_LIB34.Person.prototype.sayMsg3 = function() { //extend exists prototype 
-			if(window.console){
-				console.log("sayMsg3: " + this.msg);
-			}
-		};
-		
-		// extend existing library sample
-		myObj.sayMsg3();
-	}
+		<div ng-view></div>
+	</div>
 	
 
-	function testLib3(){
-		
-		var myJs3Obj = new MyJs3({id : "lab4"});
-		myJs3Obj.show();
-		myJs3Obj.options.callBack=function(msg){
-			console.log(msg);		
-		};
-		myJs3Obj.show();
-	}
-
-	
-</script>	
 
 </body>
 

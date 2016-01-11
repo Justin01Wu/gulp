@@ -9,7 +9,9 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var useref = require('gulp-useref');
+var debug = require('gulp-debug');
 var gulpif = require('gulp-if');
+var flatten = require('gulp-flatten');
 var minifyCss = require('gulp-minify-css');
 var replace = require('gulp-regex-replace');
 
@@ -33,6 +35,13 @@ gulp.task('copyHtmlDev', ['copyHtml'], function () {
 	return gulp.src("dist/index.html")
 		.pipe(rename("indexDev.html"))
 		.pipe(gulp.dest("dist")); 
+});
+
+gulp.task('copyTemplate', ['clean'], function () {
+	return gulp.src("webapp/asset/pages/**/*.html")
+		.pipe(debug())
+		.pipe(flatten())
+		.pipe(gulp.dest("./dist/asset" + version + "/combined")); 
 });
 
 gulp.task('copyAsset', ['clean'], function () {
@@ -67,4 +76,4 @@ gulp.task('useref', ['appendVersion', 'appendVersionDev', 'copyVendor', 'copyAss
 // Default Task
 //gulp.task('default', ['clean', 'copyAsset', 'copyVendor', 'copyHtmlDev', 'useref']);
 //gulp.task('default', ['copyAsset', 'copyVendor', 'copyHtmlDev', 'appendVersionDev', 'useref']);
-gulp.task('default', ['useref']);
+gulp.task('default', ['useref', 'copyTemplate']);
